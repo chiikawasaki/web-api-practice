@@ -1,9 +1,17 @@
 import React from "react";
-
-const ImageGrallery = () => {
+import "./ImageGrallery.css";
+const ImageGrallery = ({ fetchData }) => {
   return (
     <div>
-      <div className="images-wrapper"></div>
+      <div className="images-wrapper">
+        {fetchData.map((data) => (
+          <div className="image" key={data.id}>
+            <a href={data.pageURL}>
+              <img src={data.largeImageURL} alt="" />
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
